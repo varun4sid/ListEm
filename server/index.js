@@ -1,28 +1,14 @@
 const express = require("express");
-const path = require("path");
 const cors = require("cors");
-const pool = require("./db");
-
+const todosRouter = require("./routes/Todos");
 const app = express();
 
 // middleware
 app.use(cors());
 app.use(express.json());
 
-// routes
-app.post("/todos", async (req, res) => {
-    try {
-        console.log(req.body);
-        const { task } = req.body;
-        const newTask = await pool.query(
-            "INSERT INTO todo (task) VALUES($1);",
-            [task]
-        );
-        res.json(newTask);
-    } catch (error) {
-        console.log(error);
-    }
-});
+//routes
+app.use("/todos", todosRouter);
 
 // launch server
 PORT = 3000;
