@@ -19,11 +19,11 @@ ListEm is a Todo list application built using the PERN stack (PostgreSQL, Expres
    ```
 3. Then run the server
    ```bash
-   nodemon index.js
+   node index.js
    ```
-4. Next, go to client directory and install its dependencies
+4. Open another terminal. Go to client directory. Install its dependencies.
    ```bash
-    cd ../client
+    cd client
     npm i
    ```
 5. Run the vite app

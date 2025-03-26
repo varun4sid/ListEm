@@ -13,5 +13,5 @@ app.use("/todos", todosRouter);
 // launch server
 PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`Click here http://localhost:${PORT}`);
+    console.log(`Server running at port: ${PORT}`);
 });
