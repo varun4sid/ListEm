@@ -5,7 +5,6 @@ const todosRouter = Router();
 
 todosRouter.post("/", async (req, res) => {
     try {
-        console.log(req.body);
         const { task } = req.body;
         const newTask = await pool.query(
             "INSERT INTO todo (task) VALUES($1) RETURNING *;",
@@ -44,10 +43,10 @@ todosRouter.put("/:id", async (req, res) => {
         const { id } = req.params;
         const { task } = req.body;
         const updateTask = await pool.query(
-            "UPDATE todo SET task = $1 WHERE tid = $2;",
+            "UPDATE todo SET task = $1 WHERE tid = $2 RETURNING *;",
             [task, id]
         );
-        res.json("Todo was updated!");
+        res.json(updateTask.rows[0]);
     } catch (error) {
         console.log(error);
     }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EditTask from "./EditTask";
 
 const ListTasks = () => {
     const [tasks, setTasks] = useState([]);
@@ -48,9 +49,7 @@ const ListTasks = () => {
                         <tr key={task.tid}>
                             <td>{task.task}</td>
                             <td>
-                                <button className="btn btn-warning">
-                                    Edit
-                                </button>
+                                <EditTask todo={task} />
                             </td>
                             <td>
                                 <button
