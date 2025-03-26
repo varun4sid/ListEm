@@ -1,9 +1,11 @@
 import InputTask from "./components/InputTask";
+import ListTasks from "./components/ListTasks";
 
 const App = () => {
     return (
         <div>
-            <InputTask></InputTask>
+            <InputTask />
+            <ListTasks />
         </div>
     );
 };

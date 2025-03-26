@@ -13,18 +13,16 @@ const InputTask = () => {
                 body: JSON.stringify(body),
             });
             console.log(response);
+            window.location = "/";
         } catch (error) {
             console.log(error.message);
         }
     };
 
     return (
-        <div>
+        <>
             <h1 className="text-center mt-5">Todo List</h1>
-            <form
-                className="d-flex w-50 m-auto"
-                onSubmit={onSubmitForm}
-            >
+            <form className="d-flex w-50 m-auto" onSubmit={onSubmitForm}>
                 <input
                     className="form-control"
                     type="text"
@@ -32,11 +30,11 @@ const InputTask = () => {
                     value={task}
                     onChange={(e) => setTask(e.target.value)}
                 />
-                <button className="btn btn-success" type="submit">
+                <button className="btn btn-success ml-1" type="submit">
                     Add
                 </button>
             </form>
-        </div>
+        </>
     );
 };
 
